@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: aqua;
+}
+
+.logo img {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  list-style: none;
+  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  background-color: black;
+  color: whitesmoke;
+  line-height: 5rem;
+  font-family: "Ubuntu", sans-serif;
+  font-size: larger;
+  width: 100vw;
+  position: sticky;
+  top: 0;
+  opacity: 0.75;
+}
+
+.bottom {
+  position: sticky;
+  bottom: 0rem;
+  background-color: black;
+  color: whitesmoke;
+  height: 6.5rem;
+  width: 100vw;
+}
+
+.container {
+  min-height: 90vh;
+  color: whitesmoke;
+  background-color: black;
+  margin: 1rem auto;
+  width: 90%;
+  border-radius: 0.75rem;
+  background-image: url("/Spotify Files/img.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+#range {
+  width: 90vw;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.bar {
+  text-align: center;
+}
+
+#name {
+  margin-left: 5vw;
+  font-size: x-small;
+}
+
+.icon {
+  text-align: center;
+}
+
+.icon i {
+  cursor: pointer;
+  margin: 1rem;
+  font-size: x-large;
+}
+
+.list {
+  padding: 2rem;
+}
+
+.cov {
+  height: 1.75rem;
+  width: 1.75rem;
+  border-radius: 50%;
+  margin-top: 0.25rem;
+  margin-left: 1rem;
+}
+
+div .s3 {
+  display: flex;
+  align-items: baseline;
+}
+
+div .s3 i {
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.song {
+  width:16rem;
+  height: 2rem;
+  background-color: white;
+  color: black;
+  border-radius: 1.75rem;
+  display: flex;
+  align-items: center;
+  margin: 0.25rem;
+  justify-content: space-between;
+  text-align: center;
+  font-weight:normal;
+}
+.all {
+  display: flex;
+  flex-direction: column;
+  margin-left:3vw;
+  padding-bottom: 3rem;
+}
+
+#gif{
+  width:2.5rem;
+  height: 1rem;
+  margin-left: 1rem;
+  opacity: 0;
+  transition:opacity 0.5s ease-in;
+}
