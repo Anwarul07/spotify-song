@@ -81,10 +81,8 @@ play.addEventListener("click", () => {
 });
 
 audio.addEventListener("timeupdate", () => {
-  console.log("time upadted");
   progress = parseInt((audio.currentTime / audio.duration) * 100);
   range.value = progress;
-  console.log("progressing time.......");
 });
 
 range.addEventListener("change", () => {
@@ -92,9 +90,31 @@ range.addEventListener("change", () => {
 });
 
 
-songitem.forEach( (ele, i)=>{
-  console.log( ele , i );
-  ele.getElementsByTagName("img")[0].src=songs[i].coverPath;
-  ele.getElementsByClassName("songName")[0].innerText= songs[i].songName;
+songitem.forEach((ele, i) => {
+  console.log(ele, i);
+  ele.getElementsByTagName("img")[0].src = songs[i].coverPath;
+  ele.getElementsByClassName("songName")[0].innerText = songs[i].songName;
 });
 
+let makeAllplay = () => {
+  Array.from(document.getElementsByClassName("playAll")).forEach((ele) => {
+    ele.classList.remove("fa-pause-circle");
+    ele.classList.add("fa-play-circle")
+  })
+}
+
+
+Array.from(document.getElementsByClassName("playAll")).forEach((ele) => {
+  ele.addEventListener("click", (e) => {
+    makeAllplay();
+    index = parseInt(e.target.id)
+    e.target.classList.remove("fa-play-circle");
+    e.target.classList.add("fa-pause-circle");
+    audio.src= `Spotify Files/songs/${index+1}.mp3`;
+    audio.currentTime=0;
+    audio.play();
+    play.classList.remove("fa-play-circle")
+    play.classList.add("fa-pause-circle")
+
+  })
+})
