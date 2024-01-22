@@ -96,6 +96,7 @@ songitem.forEach((ele, i) => {
   ele.getElementsByClassName("songName")[0].innerText = songs[i].songName;
 });
 
+
 let makeAllplay = () => {
   Array.from(document.getElementsByClassName("playAll")).forEach((ele) => {
     ele.classList.remove("fa-pause-circle");
@@ -107,10 +108,10 @@ let makeAllplay = () => {
 Array.from(document.getElementsByClassName("playAll")).forEach((ele) => {
   ele.addEventListener("click", (e) => {
     makeAllplay();
-    index = parseInt(e.target.id)
+    songindex = parseInt(e.target.id)
     e.target.classList.remove("fa-play-circle");
     e.target.classList.add("fa-pause-circle");
-    audio.src= `Spotify Files/songs/${index+1}.mp3`;
+    audio.src= `Spotify Files/songs/${songindex+1}.mp3`;
     audio.currentTime=0;
     audio.play();
     play.classList.remove("fa-play-circle")
@@ -118,3 +119,33 @@ Array.from(document.getElementsByClassName("playAll")).forEach((ele) => {
 
   })
 })
+
+next.addEventListener( "click", ()=>{
+if(songindex>=9){
+  songindex=0
+
+}else{
+songindex+=1;
+}
+audio.src= `Spotify Files/songs/${songindex+1}.mp3`;
+    audio.currentTime=0;
+    audio.play();
+    play.classList.remove("fa-play-circle")
+    play.classList.add("fa-pause-circle");
+    console.log("click next");
+
+})
+
+prev.addEventListener("click", ()=>{
+ if(songindex<=0){
+  songindex=0;
+ }else {
+  songindex -=1;
+ }
+ audio.src= `Spotify Files/songs/${songindex+1}.mp3`;
+    audio.currentTime=0;
+    audio.play();
+    play.classList.remove("fa-play-circle")
+    play.classList.add("fa-pause-circle");
+    console.log("click prev");
+});
