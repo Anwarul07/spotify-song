@@ -110,7 +110,7 @@ div .s3 i {
 }
 
 .song {
-  width:16rem;
+  width: 16rem;
   height: 2rem;
   background-color: white;
   color: black;
@@ -120,19 +120,20 @@ div .s3 i {
   margin: 0.25rem;
   justify-content: space-between;
   text-align: center;
-  font-weight:normal;
+  font-weight: normal;
 }
+
 .all {
   display: flex;
   flex-direction: column;
-  margin-left:3vw;
+  margin-left: 3vw;
   padding-bottom: 3rem;
 }
 
-#gif{
-  width:2.5rem;
+#gif {
+  width: 2.5rem;
   height: 1rem;
   margin-left: 1rem;
   opacity: 0;
-  transition:opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
 }

@@ -5,8 +5,9 @@ let next = document.querySelector("#next");
 let prev = document.querySelector("#prev");
 let gif = document.querySelector("#gif");
 let range = document.querySelector("#range");
+let Namesong = document.querySelector("#name");
 
-let songitem = Array.from(document.getElementsByClassName("song"))
+let songitem = Array.from(document.getElementsByClassName("song"));
 
 let audio = new Audio("Spotify Files/songs/1.mp3");
 
@@ -69,11 +70,14 @@ play.addEventListener("click", () => {
   console.log("play cliked");
   if (audio.paused || audio <= 0) {
     audio.play();
+    gif.style.opacity = 1;
+
     play.classList.remove("fa-play-circle");
     play.classList.add("fa-pause-circle");
-    gif.style.opacity = 1;
+    Namesong.innerText = songs[songindex].songName;
   } else {
     audio.pause();
+    gif.style.opacity = 0;
     play.classList.remove("fa-pause-circle");
     play.classList.add("fa-play-circle");
     gif.style.opacity = 0;
@@ -108,44 +112,48 @@ let makeAllplay = () => {
 Array.from(document.getElementsByClassName("playAll")).forEach((ele) => {
   ele.addEventListener("click", (e) => {
     makeAllplay();
-    songindex = parseInt(e.target.id)
+    songindex = parseInt(e.target.id);
     e.target.classList.remove("fa-play-circle");
     e.target.classList.add("fa-pause-circle");
-    audio.src= `Spotify Files/songs/${songindex+1}.mp3`;
-    audio.currentTime=0;
+    Namesong.innerText = songs[songindex].songName;
+    audio.src = `Spotify Files/songs/${songindex + 1}.mp3`;
+    audio.currentTime = 0;
     audio.play();
-    play.classList.remove("fa-play-circle")
-    play.classList.add("fa-pause-circle")
-
-  })
-})
-
-next.addEventListener( "click", ()=>{
-if(songindex>=9){
-  songindex=0
-
-}else{
-songindex+=1;
-}
-audio.src= `Spotify Files/songs/${songindex+1}.mp3`;
-    audio.currentTime=0;
-    audio.play();
-    play.classList.remove("fa-play-circle")
+    gif.style.opacity = 1;
+    play.classList.remove("fa-play-circle");
     play.classList.add("fa-pause-circle");
-    console.log("click next");
+  });
+});
 
-})
+next.addEventListener("click", () => {
+  if (songindex >= 9) {
+    songindex = 0;
+  } else {
+    songindex += 1;
+  }
+  Namesong.innerText = songs[songindex].songName;
+  audio.src = `Spotify Files/songs/${songindex + 1}.mp3`;
+  audio.currentTime = 0;
+  audio.play();
+  gif.style.opacity = 1;
+  play.classList.remove("fa-play-circle");
+  play.classList.add("fa-pause-circle");
+  console.log("click next");
+});
 
-prev.addEventListener("click", ()=>{
- if(songindex<=0){
-  songindex=0;
- }else {
-  songindex -=1;
- }
- audio.src= `Spotify Files/songs/${songindex+1}.mp3`;
-    audio.currentTime=0;
-    audio.play();
-    play.classList.remove("fa-play-circle")
-    play.classList.add("fa-pause-circle");
-    console.log("click prev");
+prev.addEventListener("click", () => {
+  if (songindex <= 0) {
+    songindex = 0;
+  } else {
+    songindex -= 1;
+  }
+  Namesong.innerText = songs[songindex].songName;
+  audio.src = `Spotify Files/songs/${songindex + 1}.mp3`;
+  audio.currentTime = 0;
+  audio.play();
+  gif.style.opacity = 1;
+  play.classList.remove("fa-play-circle");
+  play.classList.add("fa-pause-circle");
+  console.log("click prev");
+  gif.style.opacity = 1;
 });
